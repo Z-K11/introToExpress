@@ -2,16 +2,16 @@ import { getAuthorsById as dbGetAuthorsById } from "../db.js";
 
 async function getAuthorsById(req,res)
 {
-    const {authorID} = req.params;
+    const {authorId} = req.params;
     try
     {
-    const author = await dbGetAuthorsById(Number(authorID));
+    const author = await dbGetAuthorsById(Number(authorId));
      if(!author)
     {
-        res.status(404).send(`Author not found for ${authorID}`);
+        res.status(404).send(`Author not found for ${authorId}`);
         return;
     }
-    res.send(`Author Name:${author}`)
+    res.send(`Author Name:${author.name}`)
     }
     catch(err)
     {
@@ -19,6 +19,5 @@ async function getAuthorsById(req,res)
         res.status(500).send(`Internal Server Error`);
     }
    
-
-
 }
+export {getAuthorsById};
