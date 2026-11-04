@@ -3,9 +3,9 @@ const authors =[
     {id:2,name:'Rabiya'},
     {id:3,name:'Maryam'},
 ];
-async function getAuthorsById(authordId)
+async function getAuthorsById(authorId)
 {
-    return authors.find(author=>author.id === authordId);
+    return authors.find(author=>author.id === authorId);
 }
 
 export {getAuthorsById};
