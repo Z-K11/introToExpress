@@ -1,23 +1,16 @@
 import { getAuthorsById as dbGetAuthorsById } from "../db.js";
+import customError from "../errors/err.js";
 
 async function getAuthorsById(req,res)
 {
     const {authorId} = req.params;
-    try
-    {
+    
     const author = await dbGetAuthorsById(Number(authorId));
      if(!author)
     {
-        res.status(404).send(`Author not found for ${authorId}`);
-        return;
+        throw new customError(404,'Author not found','NotFoundError');
     }
     res.send(`Author Name:${author.name}`)
-    }
-    catch(err)
-    {
-        console.log(`Error in retrieving author from db error msg : ${err}`);
-        res.status(500).send(`Internal Server Error`);
-    }
    
 }
 export {getAuthorsById};

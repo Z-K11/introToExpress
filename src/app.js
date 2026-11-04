@@ -7,6 +7,11 @@ const app = express();
 app.use('/authors',authorRouter);
 app.use('/books',bookRouter);
 app.use('/',indexRouter);
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(err.statusCode).send(err);
+});
+
 const port = 8080;
 app.listen(port,(error)=>
 {
