@@ -1,9 +1,11 @@
 import express from 'express';
+import path from 'node:path';
 import { authorRouter } from '../routes/authorRouter.js';
 import { bookRouter } from '../routes/bookRouter.js';
 import { indexRouter } from '../routes/indexRouter.js';
 const app = express();
-
+app.set('views',path.join(__dirname,'views'));
+app.set('view engine','ejs');
 app.use('/authors',authorRouter);
 app.use('/books',bookRouter);
 app.use('/',indexRouter);
