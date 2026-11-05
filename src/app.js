@@ -4,7 +4,7 @@ import { authorRouter } from '../routes/authorRouter.js';
 import { bookRouter } from '../routes/bookRouter.js';
 import { indexRouter } from '../routes/indexRouter.js';
 const app = express();
-app.set('views',path.join(__dirname,'views'));
+app.set('views',path.join(import.meta.dirname,'../views'));
 app.set('view engine','ejs');
 app.use('/authors',authorRouter);
 app.use('/books',bookRouter);

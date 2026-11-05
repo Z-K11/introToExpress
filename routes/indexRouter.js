@@ -4,7 +4,7 @@ const indexRouter = Router();
 
 indexRouter.get('/',(req,res)=>
 {
-    res.end('ALl indexes');
+    res.render('index',{message:'EJS Rocks'});
 })
 indexRouter.get('/:indexId',(req,res)=>
 {
