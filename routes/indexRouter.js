@@ -5,13 +5,14 @@ const links =[
     {href:'/authors',text:'authors'},
     {href:'/books',text:'books'},
 ]
+const users = ['Hassaan','Rabiya','Maryam'];
 
 const indexRouter = Router();
 
 indexRouter.get('/',(req,res)=>
 {
-    res.locals.links = links;
-    res.render('index',{message:'EJS Rocks'});
+   
+    res.render('index',{links:links,users:users});
 })
 indexRouter.get('/:indexId',(req,res)=>
 {

@@ -7,5 +7,10 @@
 </head>
 <body>
     <%- include('nav',{links:links}) %>
+    <ul>
+        <% users.forEach((user)=>{ %> 
+        <%- include('user/users',{user:user}) %>
+        <% }) %>
+    </ul>
 </body>
 </html>
