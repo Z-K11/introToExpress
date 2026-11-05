@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <%- include('nav',{links:links}) %>
+    <%- include('nav') %>
     <ul>
         <% users.forEach((user)=>{ %> 
         <%- include('user/users',{user:user}) %>

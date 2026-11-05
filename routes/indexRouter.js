@@ -1,18 +1,14 @@
 import { Router } from "express";
+import { links } from "../data/links.js";
 
-const links =[
-    {href:'/',text:'home'},
-    {href:'/authors',text:'authors'},
-    {href:'/books',text:'books'},
-]
 const users = ['Hassaan','Rabiya','Maryam'];
 
 const indexRouter = Router();
 
 indexRouter.get('/',(req,res)=>
 {
-   
-    res.render('index',{links:links,users:users});
+    res.locals.links=links;
+    res.render('index',{users:users});
 })
 indexRouter.get('/:indexId',(req,res)=>
 {
